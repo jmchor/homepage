@@ -10,7 +10,7 @@ function App() {
 	return (
 		<div>
 			<Testpage>
-				<Navigation />
+				<Navigation location="/" />
 			</Testpage>
 		</div>
 	);
