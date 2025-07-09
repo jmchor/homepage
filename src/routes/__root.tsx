@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 import GlobalStyles from '@/styles/GlobalStyles';
 import {
@@ -5,7 +6,6 @@ import {
 	createRootRoute,
 	useRouterState,
 } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -16,6 +16,8 @@ export const Route = createRootRoute({
 function RootComponent() {
 	const [active, setActive] = useState(false);
 	const routerState = useRouterState(); //get the pathname to toggle menu only on non root paths
+
+	const location = routerState.location.pathname;
 
 	useEffect(() => {
 		const toggleMenuOnKeyDown = (event: KeyboardEvent) => {
@@ -42,10 +44,15 @@ function RootComponent() {
 		<>
 			<GlobalStyles />
 			<Outlet />
-			<Overlay $active={active}>
+			<Overlay $active={active} className="overlay">
 				<Navigation />
 			</Overlay>
-			<TanStackRouterDevtools />
+
+			{/* Display  Footer only on non root paths*/}
+
+			{location !== '/' && <Footer text="Menu" bgColor="#646262" />}
+
+			{/* <TanStackRouterDevtools /> */}
 		</>
 	);
 }
@@ -58,7 +65,7 @@ const Overlay = styled.div<{ $active: boolean }>`
   height: 100%;
   background-color: rgb(0, 0, 0);
 
-  display: flex;
+  display: ${({ $active }) => ($active ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   z-index: ${({ $active }) => ($active ? 100 : -1)};
