@@ -58,17 +58,17 @@ function RootComponent() {
 }
 
 const Overlay = styled.div<{ $active: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0);
 
-  display: ${({ $active }) => ($active ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
-  z-index: ${({ $active }) => ($active ? 100 : -1)};
-  opacity: ${({ $active }) => ($active ? 1 : 0)};
-  transition: opacity 0.3s ease-in-out;
+	display: ${({ $active }) => ($active ? 'flex' : 'none')};
+	justify-content: center;
+	align-items: center;
+	z-index: ${({ $active }) => ($active ? 100 : -1)};
+	opacity: ${({ $active }) => ($active ? 1 : 0)};
+	transition: opacity 0.3s ease-in-out;
 `;
