@@ -17,7 +17,7 @@ function RootComponent() {
 	const [active, setActive] = useState(false);
 	const routerState = useRouterState(); //get the pathname to toggle menu only on non root paths
 
-	const location = routerState.location.pathname;
+	const location = routerState.location.pathname as string;
 
 	useEffect(() => {
 		const toggleMenuOnKeyDown = (event: KeyboardEvent) => {
