@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import styled from 'styled-components';
+import Footer from './Footer';
 
 export default function Navigation() {
 	return (
@@ -29,6 +30,7 @@ export default function Navigation() {
 					</li>
 				</NavigationList>
 			</nav>
+			<Footer text="Exit Menu" bgColor="black" />
 		</div>
 	);
 }
