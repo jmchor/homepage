@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import MobileHeader from '@/components/MobileHeader';
 import Navigation from '@/components/Navigation';
 import GlobalStyles from '@/styles/GlobalStyles';
 import {
@@ -17,6 +18,7 @@ function RootComponent() {
 	const [active, setActive] = useState(false);
 	const routerState = useRouterState(); //get the pathname to toggle menu only on non root paths
 
+	console.log(window.innerWidth);
 	const location = routerState.location.pathname as string;
 
 	useEffect(() => {
@@ -44,13 +46,18 @@ function RootComponent() {
 		<>
 			<GlobalStyles />
 			<Outlet />
+			{location !== '/' && window.innerWidth < 1200 && (
+				<MobileHeader active={active} setActive={setActive} />
+			)}
 			<Overlay $active={active} className="overlay">
-				<Navigation location={location} />
+				<Navigation location={location} setActive={setActive} active={active} />
 			</Overlay>
 
 			{/* Display  Footer only on non root paths*/}
 
-			{location !== '/' && <Footer text="Menu" bgColor="#646262" />}
+			{location !== '/' && window.innerWidth > 1200 && (
+				<Footer text="Menu" bgColor="var(--endlessSpace)" />
+			)}
 
 			{/* <TanStackRouterDevtools /> */}
 		</>
