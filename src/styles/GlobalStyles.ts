@@ -7,6 +7,8 @@ html {
 	--maxwidth: 1000px;
 	--bs: 0 12px 24px 0 rgba(0,0,0,0.09);
 	box-sizing: border-box;
+	--footerHeight: 50px;
+	--starColor: #fff;
 	/* font-size: 62.5%; */
 }
 
@@ -35,6 +37,15 @@ ul {
 
 a {
 	text-decoration: none;
+}
+
+@keyframes animStar {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-2000px);
+	}
 }
 
 
