@@ -45,7 +45,7 @@ function RootComponent() {
 			<GlobalStyles />
 			<Outlet />
 			<Overlay $active={active} className="overlay">
-				<Navigation />
+				<Navigation location={location} />
 			</Overlay>
 
 			{/* Display  Footer only on non root paths*/}
