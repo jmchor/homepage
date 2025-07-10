@@ -1,28 +1,14 @@
 import { Link } from '@tanstack/react-router';
 import Footer from '../Footer';
 import {
-	EvenMoreStars,
-	MoreStars,
 	NavigationInnerWrapper,
 	NavigationList,
 	NavigationWrapper,
-	Stars,
 } from './styles';
 
-export default function Navigation({
-	location,
-	active,
-	setActive,
-}: {
-	location: string;
-	active: boolean;
-	setActive: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export default function Navigation({ location }: { location: string }) {
 	return (
 		<NavigationWrapper>
-			<Stars />
-			<MoreStars />
-			<EvenMoreStars />
 			<NavigationInnerWrapper>
 				<nav>
 					<NavigationList>
@@ -51,10 +37,7 @@ export default function Navigation({
 				</nav>
 
 				{location !== '/' && window.innerWidth > 1200 && (
-					<Footer
-						text="Exit Menu"
-						bgColor="radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)"
-					/>
+					<Footer active={true} bgColor="var(--endlessSpace)" />
 				)}
 			</NavigationInnerWrapper>
 		</NavigationWrapper>
