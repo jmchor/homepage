@@ -35,6 +35,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+background-color: #000000b5;
 `;
 
 export const Stars = styled.div`
