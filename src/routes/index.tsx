@@ -9,14 +9,14 @@ export const Route = createFileRoute('/')({
 function App() {
 	return (
 		<div>
-			<Testpage>
+			<IndexWrapper>
 				<Navigation location="/" />
-			</Testpage>
+			</IndexWrapper>
 		</div>
 	);
 }
 
-const Testpage = styled.div`
+const IndexWrapper = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
