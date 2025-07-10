@@ -67,7 +67,7 @@ function RootComponent() {
 				{/* Display  Footer only on non root paths*/}
 
 				{currentLocation !== '/' && window.innerWidth > 1200 && (
-					<Footer bgColor="var(--endlessSpace)" active={active} />
+					<Footer active={active} />
 				)}
 			</NavigationWrapper>
 
