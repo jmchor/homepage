@@ -25,12 +25,13 @@ export const NavigationWrapper = styled.div`
 	background-color: var(--endlessSpace);
 	overflow: hidden;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
+
 `;
 
 export const NavigationInnerWrapper = styled.div`
 width: 100%;
-height: 100vh;
+height: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
