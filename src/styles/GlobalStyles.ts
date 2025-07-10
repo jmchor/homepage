@@ -9,7 +9,8 @@ html {
 	box-sizing: border-box;
 	--footerHeight: 50px;
 	--starColor: #fff;
-	--endlessSpace: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+	--endlessSpace: radial-gradient(ellipse at 50% 50%, #1b2735 0%, #090a0f 100%);
+
 	/* font-size: 62.5%; */
 }
 
@@ -21,6 +22,7 @@ body {
 	padding: 0;
 	margin: 0;
 	background: var(--endlessSpace);
+	background-repeat: repeat 1000px 1000px;
 	height: 100vh;
 	color: #fff;
 	line-height: 2;
