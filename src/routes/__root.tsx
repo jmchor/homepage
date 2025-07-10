@@ -1,6 +1,12 @@
 import Footer from '@/components/Footer';
 import MobileHeader from '@/components/MobileHeader';
 import Navigation from '@/components/Navigation';
+import {
+	EvenMoreStars,
+	MoreStars,
+	NavigationWrapper,
+	Stars,
+} from '@/components/Navigation/styles';
 import GlobalStyles from '@/styles/GlobalStyles';
 import {
 	Outlet,
@@ -45,19 +51,25 @@ function RootComponent() {
 	return (
 		<>
 			<GlobalStyles />
-			<Outlet />
-			{location !== '/' && window.innerWidth < 1200 && (
-				<MobileHeader active={active} setActive={setActive} />
-			)}
-			<Overlay $active={active} className="overlay">
-				<Navigation location={location} setActive={setActive} active={active} />
-			</Overlay>
+			<NavigationWrapper>
+				<Outlet />
+				{location !== '/' && window.innerWidth < 1200 && (
+					<MobileHeader active={active} setActive={setActive} />
+				)}
 
-			{/* Display  Footer only on non root paths*/}
+				<Overlay $active={active} className="overlay">
+					<Navigation location={location} />
+				</Overlay>
+				<Stars />
+				<MoreStars />
+				<EvenMoreStars />
 
-			{location !== '/' && window.innerWidth > 1200 && (
-				<Footer text="Menu" bgColor="var(--endlessSpace)" />
-			)}
+				{/* Display  Footer only on non root paths*/}
+
+				{location !== '/' && window.innerWidth > 1200 && (
+					<Footer bgColor="var(--endlessSpace)" active={active} />
+				)}
+			</NavigationWrapper>
 
 			{/* <TanStackRouterDevtools /> */}
 		</>
@@ -70,7 +82,7 @@ const Overlay = styled.div<{ $active: boolean }>`
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(0, 0, 0);
+
 
 	display: ${({ $active }) => ($active ? 'flex' : 'none')};
 	justify-content: center;
