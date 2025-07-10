@@ -24,13 +24,12 @@ function RootComponent() {
 	const [active, setActive] = useState(false);
 	const routerState = useRouterState(); //get the pathname to toggle menu only on non root paths
 
-	console.log(window.innerWidth);
-	const location = routerState.location.pathname as string;
+	const currentLocation = routerState.location.pathname as string;
 
 	useEffect(() => {
 		const toggleMenuOnKeyDown = (event: KeyboardEvent) => {
 			if (event.key !== 'Escape') return;
-			if (routerState.location.pathname === '/') return;
+			if (currentLocation === '/') return;
 
 			setActive((prev) => !prev);
 		};
@@ -40,25 +39,26 @@ function RootComponent() {
 		return () => {
 			document.removeEventListener('keydown', toggleMenuOnKeyDown);
 		};
-	}, [routerState.location.pathname]); // reattach if pathname changes
+	}, [currentLocation]); // reattach if pathname changes
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		// Close modal when route changes
-		console.log(routerState.location.pathname);
+
 		setActive(false);
-	}, [routerState.location.pathname]);
+	}, [currentLocation]);
 
 	return (
 		<>
 			<GlobalStyles />
 			<NavigationWrapper>
 				<Outlet />
-				{location !== '/' && window.innerWidth < 1200 && (
+				{currentLocation !== '/' && window.innerWidth < 1200 && (
 					<MobileHeader active={active} setActive={setActive} />
 				)}
 
 				<Overlay $active={active} className="overlay">
-					<Navigation location={location} />
+					<Navigation currentLocation={currentLocation} />
 				</Overlay>
 				<Stars />
 				<MoreStars />
@@ -66,7 +66,7 @@ function RootComponent() {
 
 				{/* Display  Footer only on non root paths*/}
 
-				{location !== '/' && window.innerWidth > 1200 && (
+				{currentLocation !== '/' && window.innerWidth > 1200 && (
 					<Footer bgColor="var(--endlessSpace)" active={active} />
 				)}
 			</NavigationWrapper>
