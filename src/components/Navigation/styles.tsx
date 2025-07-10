@@ -22,7 +22,7 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationWrapper = styled.div`
-background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+	background-color: var(--endlessSpace);
 	overflow: hidden;
 	width: 100%;
 	height: 100vh;
