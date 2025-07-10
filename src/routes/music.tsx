@@ -6,15 +6,15 @@ export const Route = createFileRoute('/music')({
 
 function RouteComponent() {
 	return (
-		<div>
+		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<iframe
 				title="music"
 				style={{ borderRadius: '12px' }}
 				src="https://open.spotify.com/embed/playlist/70RIzkaiuvrFb65WNHis8E?utm_source=generator"
-				width="50%"
-				height="852"
+				width="20%"
+				height="452"
 				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-				loading="lazy"
+				loading="eager"
 			/>
 		</div>
 	);
