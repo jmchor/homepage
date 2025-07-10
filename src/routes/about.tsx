@@ -1,3 +1,4 @@
+import { GlobalWebpageStyle } from '@/styles/GlobalWebpageStyle';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/about')({
@@ -5,5 +6,9 @@ export const Route = createFileRoute('/about')({
 });
 
 function AboutPage() {
-	return <div>Hello "/about"!</div>;
+	return (
+		<GlobalWebpageStyle>
+			<p>About</p>
+		</GlobalWebpageStyle>
+	);
 }
