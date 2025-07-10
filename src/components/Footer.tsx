@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-export default function Footer({
-	active,
-	bgColor,
-}: { bgColor: string; active: boolean }) {
+export default function Footer({ active }: { active: boolean }) {
 	return (
-		<FooterStyles $bgColor={bgColor}>
+		<FooterStyles>
 			{active ? <p>Exit Menu</p> : <p>Menu</p>}
 			<img
 				src="/esc_invert.png"
@@ -15,13 +12,13 @@ export default function Footer({
 		</FooterStyles>
 	);
 }
-const FooterStyles = styled.footer<{ $bgColor: string }>`
+const FooterStyles = styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: ${({ $bgColor }) => $bgColor};
+  background-color: var(--endlessSpace);
   color: #fff;
   text-align: center;
   line-height: 50px;
