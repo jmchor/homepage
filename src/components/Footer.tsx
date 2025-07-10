@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export default function Footer({
-	text,
+	active,
 	bgColor,
-}: { text: string; bgColor: string }) {
+}: { bgColor: string; active: boolean }) {
 	return (
 		<FooterStyles $bgColor={bgColor}>
-			<p>{text}</p>
+			{active ? <p>Exit Menu</p> : <p>Menu</p>}
 			<img
 				src="/esc_invert.png"
 				alt=""
