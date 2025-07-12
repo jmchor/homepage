@@ -10,7 +10,7 @@ function App() {
 	return (
 		<div>
 			<IndexWrapper>
-				<Navigation location="/" />
+				<Navigation currentLocation="/" />
 			</IndexWrapper>
 		</div>
 	);
