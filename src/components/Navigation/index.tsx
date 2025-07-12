@@ -79,7 +79,7 @@ export default function Navigation({
 				</nav>
 
 				{currentLocation !== '/' && window.innerWidth > 1200 && (
-					<Footer active={true} bgColor="var(--endlessSpace)" />
+					<Footer active={true} />
 				)}
 			</NavigationInnerWrapper>
 		</NavigationWrapper>
