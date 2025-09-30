@@ -72,7 +72,7 @@ export default function Navigation({
 								target="_blank"
 								rel="noreferrer"
 							>
-								blog
+								Blog
 							</a>
 						</li>
 					</NavigationList>
